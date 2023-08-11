@@ -156,6 +156,7 @@ export async function fetchHTTPResponse(
   if (type === 'subscription') {
     throw new Error('Subscriptions should use wsLink');
   }
+  delete resolvedHeaders['content-length']
   const headers = {
     ...(opts.contentTypeHeader
       ? { 'content-type': opts.contentTypeHeader }
